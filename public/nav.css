@@ -20,15 +20,15 @@
     text-align: center;
     top: 0;
     background-size: cover;
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
+
+
   justify-content: space-around;
   align-items: center;
   width: 100vw;
   height: 100vh;
 
 }
+
     html,
     body {
         height: 100%
@@ -36,18 +36,18 @@
     }
 
     body {
-
+        display: block;
         place-items: center;
         background: #eee
     }
 
     .card {
         flex: auto;
-    margin-bottom: 0;
+        margin: 5px;
         width: 350px;
         border-radius: 50px;
-        background: #eeeeee;
-        box-shadow: 20px 20px 60px #cacaca, -20px -20px 60px #ffffff;
+        background: #e0dede;
+        box-shadow: 10px 10px 30px #cacaca, -10px -10px 30px #ffffff;
         border: none
     }
 
@@ -69,5 +69,40 @@
         border-radius: 50%;
         background: linear-gradient(145deg, #d6d6d6, #ffffff);
         box-shadow: inset 20px 20px 60px #cacaca, inset -20px -20px 60px #ffffff
+    }
+
+    #principal{
+        position: fixed;
+        background-color: dimgray;
+        float: left;
+        width: 250px;
+        height: 100%;
+        border-right: 1px solid #e9e9e9;
+        box-shadow: 0 0 15px rgb(8, 4, 4);
+    }
+    #principal ul,
+    #principal ul li{
+        float: left;
+        width: 100%;
+    }
+
+    #principal ul li a{
+        float:left;
+        width: 100%;
+        height: 80px;
+        border-bottom: 1px solid #e9e9e9;
+    }
+
+    #principal ul li a i{
+        float:flet;
+        height: 80px;
+        width: 80px;
+    }
+
+    #principal ul li a h3{
+        float:left;
+        height: 80px;
+        font: 1em 'Fredoka One',cursive;
+        color:beige;
     }
 

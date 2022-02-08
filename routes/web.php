@@ -13,13 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/apiController', 'App\Http\Controllers\apiController@index')->name('comics');
 
-Route::get('/comics', function(){
-    return view('comics');
+Route::get('/comics',  [App\Http\Controllers\apiController::class, 'comics'])->name('comics');
+
+Auth::routes();
+
+Route::get('/cart', function () {
+    return view('cart');
 });
-Route::get('/index', 'App\Http\Controllers\apiController@index')->name('index')->where('offset', '[0-9]+');
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

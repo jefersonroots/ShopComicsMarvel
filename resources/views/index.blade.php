@@ -27,7 +27,7 @@
              @endforeach
 
 
-</div>
+</div></div>
 <div class="buttons">
 
 </div>
