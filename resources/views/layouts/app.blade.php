@@ -19,11 +19,12 @@
         @yield('css-view')
     </head>
     <body>
-        @section('sidebar')
         @include('layouts.navbar')
+        @section('sidebar')
+
         @show
         @yield('content')
-        @yield('js-view')
+        {{-- @yield('js-view') --}}
 
          <style>
 

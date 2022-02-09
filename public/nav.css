@@ -1,108 +1,438 @@
-
-
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 
- #container {
-    background-size:100%;
+#container {
+    background-size: 100%;
     bottom: 0;
     color: black;
-    left: 0;
-    overflow: auto;
+    left: 150px;
+
     padding: 3em;
     position: absolute;
-    right: 0;
-    text-align: center;
-    top: 0;
+    right: 150px;
+
     background-size: cover;
 
-
-  justify-content: space-around;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
+    align-items: center;
+    width: 80vw;
+    height: 80vh;
 
 }
 
-    html,
+html,
+body {
+    height: 100%;
+    /* width: 60%; */
+}
+
+body {
+    display: block;
+    place-items: center;
+    background: #eee
+}
+
+.card {
+    flex: auto;
+    margin: 15px;
+    width: 350px;
+    border-radius: 50px;
+    background: #e0dede;
+    box-shadow: 10px 10px 30px #cacaca, -10px -10px 30px rgb(16, 57, 79);
+    border: none
+}
+
+.neo-button {
+    width: 50px;
+    height: 50px;
+    outline: 0 !important;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    border: 1px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, rgb(16, 57, 79), #ffffff);
+    box-shadow: 20px 20px 60px #cacaca, -20px -20px 60px #ffffff
+}
+
+.neo-button:active {
+    border-radius: 50%;
+    background: linear-gradient(145deg, #d6d6d6, #ffffff);
+    box-shadow: inset 20px 20px 60px #cacaca, inset -20px -20px 60px #ffffff
+}
+
+i {
+    width: 50%;
+}
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* regra para o clear float */
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+.cf {
+    *zoom: 1;
+}
+
+#lateral {
+    padding: 0 50px 0 0;
+    -moz-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    font-size: 1.2em;
+    background: rgb(44, 62, 80);
+    background-image: -moz-linear-gradient(135deg, rgb(3, 8, 12), rgb(16, 57, 79));
+    background-image: -webkit-linear-gradient(135deg, rgb(3, 8, 12), rgb(16, 57, 79));
+    background-image: -o-linear-gradient(135deg, rgb(3, 8, 12), rgb(16, 57, 79));
+    background-image: -ms-linear-gradient(135deg, rgb(3, 8, 12), rgb(16, 57, 79));
+    background-image: linear-gradient(135deg, rgb(3, 8, 12), rgb(16, 57, 79));
+    height: 100%;
+    overflow: hidden;
+    width: 370px;
+    position: fixed;
+    top: 0;
+    left: -320px;
+}
+
+#lateral:before {
+    z-index: 1000;
+    content: url('icone-menu.png');
+    font-size:4em;
+	color:white;
+	position:fixed;
+	left:4px;
+	top:45px;
+}
+
+#lateral:hover:before,
+#lateral:focus:before {
+    left: 10px
+}
+
+#lateral:hover,
+#lateral:focus,
+#lateral:active {
+    overflow-y: scroll;
+    -moz-transform: translate(220px, 0);
+    -webkit-transform: translate(220px, 0);
+    -o-transform: translate(220px, 0);
+    transform: translate(220px, 0);
+    padding-right: 0;
+}
+
+#lateral .box {
+    list-style-type: none;
+    margin-bottom: 1em;
+    ;
+    padding-bottom: 1em;
+}
+
+#lateral h3 {
+
+    font-weight: bold;
+    font-size: 1.6em;
+    font-style: normal;
+    padding-bottom: 1.2em;
+    margin: 2em 10em 0em 3.5em;
+    margin-right: 13px;
+    color: rgb(255, 255, 255);
+    border-bottom: 4px solid rgb(155, 155, 155);
+}
+
+#menu {
+    font-style: italic;
+    position: relative;
+    font-size: 1.0em;
+    margin: 1em 0 1em -1em;
+    padding: 0;
+}
+
+#menu li {
+    padding: 0;
+    margin: 0;
+}
+
+#menu li a,
+#menu li a:link {
+    font-size: 1.2em;
+    color: rgb(255, 255, 255);
+
+
+}
+
+a,
+li {
+    text-decoration: none;
+}
+
+#menu li a:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.2);
+    -moz-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    ;
+}
+
+@media (max-width: 50%) {
     body {
-        height: 100%
-
+        margin-left: 0;
+        background-size: 100% 28em !important;
     }
 
-    body {
-        display: block;
-        place-items: center;
-        background: #eee
-    }
-
-    .card {
-        flex: auto;
-        margin: 5px;
-        width: 350px;
-        border-radius: 50px;
-        background: #e0dede;
-        box-shadow: 10px 10px 30px #cacaca, -10px -10px 30px #ffffff;
-        border: none
-    }
-
-    .neo-button {
-        width: 50px;
-        height: 50px;
-        outline: 0 !important;
-        cursor: pointer;
-        color: rgb(0, 0, 0);
-        font-size: 15px;
-        border: 1px;
-        margin-right: 10px;
-        border-radius: 50%;
-        background: linear-gradient(145deg, #d6d6d6, #ffffff);
-        box-shadow: 20px 20px 60px #cacaca, -20px -20px 60px #ffffff
-    }
-
-    .neo-button:active {
-        border-radius: 50%;
-        background: linear-gradient(145deg, #d6d6d6, #ffffff);
-        box-shadow: inset 20px 20px 60px #cacaca, inset -20px -20px 60px #ffffff
-    }
-
-    #principal{
-        position: fixed;
-        background-color: dimgray;
-        float: left;
-        width: 250px;
+    #lateral {
+        padding: 0;
+        -moz-transition: all 0.5s ease;
+        -webkit-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        font-size: 1.2em;
         height: 100%;
-        border-right: 1px solid #e9e9e9;
-        box-shadow: 0 0 15px rgb(8, 4, 4);
-    }
-    #principal ul,
-    #principal ul li{
-        float: left;
+        overflow: auto;
         width: 100%;
+        position: static;
+        top: 0;
+        left: 0;
     }
 
-    #principal ul li a{
-        float:left;
-        width: 100%;
-        height: 80px;
-        border-bottom: 1px solid #e9e9e9;
+    #lateral:before {
+        z-index: 1000;
+        width: 0;
+        text-align: center;
+        content: "";
+        font-size: 0;
+        color: white;
+        position: static;
+        top: 0;
+        left: 0;
+        display: inline-block;
     }
 
-    #principal ul li a i{
-        float:flet;
-        height: 80px;
-        width: 80px;
+    #lateral:hover,
+    #lateral:focus {
+        overflow: scroll;
+        -moz-transform: none;
+        -webkit-transform: none;
+        -o-transform: none;
+        transform: none;
     }
 
-    #principal ul li a h3{
-        float:left;
-        height: 80px;
-        font: 1em 'Fredoka One',cursive;
-        color:beige;
+    #menu li a {
+        border-bottom: 1px solid #ccc;
+        ;
     }
 
+    #menu li:first-child a {
+        border-top: 1px solid #ccc;
+    }
+}
+.cart-container {
+    border-radius: 8px;
+
+    box-shadow: 0 5px 20px rgb(120, 120, 120);
+}
+
+.cart-body {
+    background-image: linear-gradient(#f9f9f9, #ccc)
+}
+
+.cart-item {
+    padding: 15px 20px 0 20px;
+}
+
+.cart-row {
+    display: flex;
+
+    padding: 15px 0;
+
+    flex-direction: row;
+
+    border-bottom: #ccc 1px solid;
+}
+
+.cart-row:last-of-type {
+    border-bottom: #bbb 1px solid;
+}
+
+.cart-row-cell {
+    height: 50px;
+}
+
+.cart-row .pic {
+    flex: 1;
+
+    position: relative;
+}
+
+.cart-row .pic a {
+    top: -5px;
+
+    left: -5px;
+
+    width: 20px;
+
+    height: 20px;
+
+    color: #000;
+
+    font-size: 1em;
+
+    text-align: center;
+
+    position: absolute;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    display: inline-block;
+
+    background-color: #fff;
+
+    border: #dadada 1px solid;
+
+    box-shadow: 2px 2px 2px rgb(160, 160, 160);
+}
+
+.cart-row .pic span {
+    width: 50px;
+
+    height: 50px;
+
+    border-radius: 30px;
+
+    display: inline-block;
+
+    background-size: contain;
+
+    background-image: url(../image.jpg);
+}
+
+
+.cart-row .desc {
+    flex: 3;
+}
+
+.cart-row .desc h5 {
+    margin: 10px 0 0;
+}
+
+.cart-row .desc p {
+    margin: 5px 0 0;
+
+    font-size: 0.75em;
+}
+
+.cart-row .quant {
+    flex: 2;
+}
+
+.cart-row .quant ul {
+    list-style: none;
+}
+
+.cart-row .quant ul li {
+    display: inline-block;
+
+    font-size: 1.5em;
+
+    padding: 0 5px;
+}
+
+.cart-row .quant ul li a {
+    color: #000;
+
+    text-decoration: none;
+}
+
+.cart-row .amount {
+    flex: 1;
+}
+
+.cart-row .amount p {
+    margin: 23px 0 0 0;
+}
+
+.cart-container header {
+    color: #fff;
+
+    background-color: rgb(44, 62, 80);
+
+    border-top-left-radius: 8px;
+
+    border-top-right-radius: 8px;
+}
+
+.cart-container header h3 {
+    margin: 0;
+
+    padding: 20px;
+}
+
+.cart-container footer {
+    padding: 20px;
+
+    text-align: center;
+
+    background-color: #ccc;
+
+    border-bottom-left-radius: 8px;
+
+    border-bottom-right-radius: 8px;
+}
+
+.cart-container footer button {
+    color: #fff;
+
+    border: none;
+
+    font-size: 1em;
+
+    padding: 5px 15px;
+
+    background-color: rgb(16, 57, 79);
+}
+
+.cart-container footer .totals {
+    display: flex;
+
+    flex-direction: row;
+}
+
+.cart-container footer .totals p {
+    margin: 5px 0;
+}
+
+.cart-container footer .total-label {
+    flex: 1;
+
+    text-align: left;
+}
+
+.cart-container footer .total-amount {
+    flex: 1;
+
+    text-align: right;
+}
