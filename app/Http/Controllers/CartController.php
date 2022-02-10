@@ -24,10 +24,12 @@ class CartController extends Controller
             "id" => $request['id'],
             "title" => $request['title'],
             "quantidade" => 1,
+            "price" => $request['price'],
+            "desc" => $request['desc'],
             "img" => $request['img'],
         ];
 
         session()->put('cart', $cart);
-        return redirect()->back()->with('sucess', '<script>alert("não, estou aq.");</script>');
+        return redirect()->back()->with(['success' =>'<script>alert("Comics Adicionado ao Carrinho")</script>'])->withInput();
     }
 }

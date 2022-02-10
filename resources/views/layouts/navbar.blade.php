@@ -1,6 +1,5 @@
 <head>
     <meta charset="utf-8" />
-    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     @yield('css-view')
 </head>
 <div>

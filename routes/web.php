@@ -22,3 +22,7 @@ Route::get('/cart/{id}', "App\Http\Controllers\CartController@getId")->name('car
 Route::get('/cart', function () {
     return view('cart');
 });
+Route::get('/modal', function () {
+    return view('modal')->name('modal');
+});
+Route::get('/modal',"App\Http\Controllers\ModalController@modal")->name('modal');

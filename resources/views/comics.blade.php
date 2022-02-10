@@ -1,8 +1,4 @@
 @extends('layouts.app')
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 @section('title', 'Marvel')
 
 @section('sidebar')
@@ -21,63 +17,94 @@
                 ?>
                 @foreach ($results as $resultArray)
                     <?php $recebe = $resultArray;
-                          $imagem = $resultArray['thumbnail']['path'].'.jpg';
+                    $imagem = $resultArray['thumbnail']['path'] . '.jpg';
+                    $price = $resultArray['prices'][0]['price'];
 
-                     ?>
-                    @if($resultArray['id'] == '1332' || $resultArray['id'] == '1308')
+                    ?>
+                    @if ($resultArray['id'] == '1332' || $resultArray['id'] == '1308')
 
-                   @else
+                    @else
 
-                    <div class="card p-3 py-4 col-md-4 d-flex justify-content-center flex-wrap">
-                        <div class="text-center">
-                            <a href="cart"> <img width='60%' height="50%"
-                                    src="{{  $imagem}}" /></a>
-                            <h3 class='mt-2'>{{ $resultArray['title']  }}</h3>
-                            <span class="mt-1 clearfix">{{ $resultArray['id'] }}</span>
-                            <span class="mt-4">{{ $resultArray['description'] }}</span>
-                            <div class="social-buttons mt-5">
-                                    <a href="{{ route('cart', ['id' => $resultArray['id'],'title' => $resultArray['title'], 'img'=>$resultArray['thumbnail']['path'].'.jpg'])}}">
+                        <div class="card p-3 py-4 col-md-4 d-flex justify-content-center flex-wrap">
+                            <div class="text-center">
+                                <a href="cart"> <img width='60%' height="50%" src="{{ $imagem }}" /></a>
+                                <h3  style="border-bottom:12px;border-color:black;" class='mt-2'>{{ $resultArray['title'] }}</h3>
+
+                                <br>
+                                @if( $resultArray['prices'][0]['price'] ==0 )
+                                <span style="display: none;">   {{ $price=3.3; }}</span>
+                                <span class="mt-4"><h4 style="color: red" class='mt-2'> ${{ $price }}</h4></h4></span>
+
+                                @else
+                                <h4 class='mt-2' style="color: red"><span class="mt-4">${{ $resultArray['prices'][0]['price']}}</span></h4>
+                                @endif
+                                <div class="social-buttons mt-5">
+                                    <a href="{{ route('cart', ['id' => $resultArray['id'],'title' => $resultArray['title'],'price'=>$price,'img' => $resultArray['thumbnail']['path'] . '.jpg']) }}">
                                         <button name="cart-add" class="neo-button">
                                             <i class="fa fa-cart-plus fa-lg" aria-hidden="true">
                                             </i></button>
-                                </a>
-                                <a align="center" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#detalharCliente">
-                                <button name="info" class="neo-button">
-                                    <i class="fa fa-info-circle fa-lg">
-                                    </i>
-                                </button></a>
+                                    </a>
+                                    <a  class="col-md-1 view_data" align="center"  data-title="{{ $resultArray['title'] }}"
+                                        data-id="{{ $resultArray['id'] }}"  data-img="{{ $imagem }}" data-description = "{{ $resultArray['description'] }}"
+                                        data-toggle="modal" >
+                                        <button id1="{{ $resultArray['title'] }}"  type="submit" name="info" class="neo-button">
+                                            <i class="fa fa-info-circle fa-lg">
+                                            </i>
+                                        </button></a>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
                     @endif
                 @endforeach
             </div>
         </div>
     </body>
 
-<div class="modal fade bd-example-modal-lg" id="detalharCliente" name="detalharCliente" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-                          <div class="modal-header">
-                              <h3 class="modal-title" style="align-itens:center;" id="exampleModalLongTitle">Dados dos Clientes</h3>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                              </button>
-                          </div>
-                          <span id="conteudoDetalhar">
-                            <a href="cart"> <img width='20%' height="25%"
-                                src="{{  $imagem}}" /></a>
-                        <h3 class='mt-2'>{{ $resultArray['title']  }}</h3>
-                        <span class="mt-1 clearfix">{{ $resultArray['id'] }}</span>
-                        <span class="mt-4">{{ $resultArray['description'] }}</span>
-                        <span class="mt-4">{{ $resultArray['variantDescription'] }}</span>
-                          </span>
-                          <div class="modal-footer">
+    <div class="modal fade bd-example-modal-lg" id="detalhar" name="detalhar" tabindex="-1" role="dialog"
+        aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div align="center"  style="background-image: linear-gradient(135deg, rgb(3, 8, 12), rgb(16, 57, 79));color:antiquewhite;"class="modal-header">
+                    <h3 class="modal-title"  align="center" id="exampleModalLongTitle">Details Comics
+                    </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <span id="conteudoDetalhar">
+                </span>
+                <div  style="   background-image: linear-gradient(135deg, rgb(3, 8, 12), rgb(16, 57, 79));" class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
 
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              @endsection
+
+    <script type="text/javascript">
+  $(document).ready(function() {
+                $(document).on('click', '.view_data', function() {
+                    var id = $(this).attr("data-id");
+                    var title = $(this).attr("data-title");
+                    var img = $(this).attr("data-img");
+                    var description = $(this).attr("data-description");
+                    if (id !== '') {
+                        var dados = {
+                            id:id,
+                            title: title,
+                            img:img,
+                            description, description
+                        };
+                        $.get('{{route("modal")}}', dados, function(retorna) {
+                            $("#conteudoDetalhar").html(retorna);
+                            $('#detalhar').modal('show');
+                        });
+                    }
+                });
+            });
+
+
+
+    </script>
+@endsection
 

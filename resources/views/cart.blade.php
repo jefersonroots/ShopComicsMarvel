@@ -14,26 +14,16 @@
                 <div class="cart-item">
                     @if(session('cart'))
                         <?php
-                            $qtdItens =0;
-                            // foreach(session('cart') as $key => $value){
-                            //     $qtdItens += $value['quantidade'];
-                            // }echo $qtdItens;
-
+                            $total=0;
+                            $quantidade=0;
                         ?>
-
                         @foreach (session('cart') as $detalhes)
 
-                        {{-- {{ $title }} --}}
-                            <?php
-
-                            ?>
                             <div class="cart-row">
                                 <img  width='15%' height="10%" style="margin-left:5%;margin-right:5%;"
                                 src="{{  $detalhes['img'] }}" />
-
                                 {{-- <div class="cart-row-cell pic">
                                     <a href="#">-</a>
-
                                  --}}
 
                                 <div class="cart-row-cell desc">
@@ -46,12 +36,18 @@
                                         <li><a href="#">-</a></li>
                                         <li>{{ $detalhes['quantidade'] }}</li>
                                         <li><a href="#">+</a></li>
+                                        <div class="cart-row-cell amount">
+
+                                            <li><h5>${{ $detalhes['price'] }}</h5></li>
+
+                                        </div>
                                     </ul>
                                 </div>
-                                <div class="cart-row-cell amount">
-                                    <p>R$13,87</p>
-                                </div>
+
                             </div>
+                            <span style="display: none;">  {{   $total += $detalhes['price'] }}</span>
+                            <span style="display: none;">  {{   $quantidade += $detalhes['quantidade'] }}</span>
+
                         @endforeach
                     @endif
                 </div>
@@ -59,17 +55,14 @@
 
             <footer>
                 <div class="totals">
-                    <p class="total-label">Subtotal</p>
-                    <p class="total-amount">R$13,87</p>
-                </div>
+                    <h5> <p class="total-label">Quantidade de Itens</p></h5>
+                     <p class="total-amount"><h5>{{ $total }}</h5></p>
+                 </div>
                 <div class="totals">
-                    <p class="total-label">Taxa</p>
-                    <p class="total-amount">R$2,00</p>
+                   <h5> <p class="total-label">Total</p></h5>
+                    <p class="total-amount"><h5>{{ $quantidade }}</h5></p>
                 </div>
-                <div class="totals">
-                    <p class="total-label">Total</p>
-                    <p class="total-amount">R$15,87</p>
-                </div>
+
                 <button>Finalizar Compra</button>
             </footer>
         </div>
