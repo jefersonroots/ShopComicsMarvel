@@ -71,5 +71,6 @@
    * Operar quantidade x valor no carrinho 
    * Adicionar opções de raridades nos comics 
    * Adicionar opção de cupom aos comics utilizando rest com mock
+   * Adicionar as variantes dos comics ao catálogo
 
 
