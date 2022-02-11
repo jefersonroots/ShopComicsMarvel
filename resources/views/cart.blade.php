@@ -53,7 +53,7 @@
             <footer>
                 <div class="totals">
                     <h5>
-                        <p class="total-label">Quantidade de Itens</p>
+                      <p class="total-label">Total</p>
                     </h5>
                     <p class="total-amount">
                     <h5>{{ @$total }}</h5>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="totals">
                     <h5>
-                        <p class="total-label">Total</p>
+                          <p class="total-label">Quantidade de Itens</p>
                     </h5>
                     <p class="total-amount">
                     <h5>{{ @$quantidade }}</h5>
