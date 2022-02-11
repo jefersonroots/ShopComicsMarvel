@@ -15,14 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/apiController', 'App\Http\Controllers\apiController@index');
-
-Route::get('/comics',[App\Http\Controllers\apiController::class, 'comics'])->name('comics');
-Route::get('/',[App\Http\Controllers\apiController::class, 'comics'])->name('comics');
+Route::get('/comics', [App\Http\Controllers\apiController::class, 'comics'])->name('comics');
+Route::get('/', [App\Http\Controllers\apiController::class, 'comics'])->name('comics');
 Route::get('/cart/{id}', "App\Http\Controllers\CartController@getId")->name('cart');
 Route::get('/cart', function () {
     return view('cart');
 });
-Route::get('/modal', function () {
-    return view('modal')->name('modal');
-});
-Route::get('/modal',"App\Http\Controllers\ModalController@modal")->name('modal');
+
+Route::get('/modal', "App\Http\Controllers\ModalController@modal")->name('modal');

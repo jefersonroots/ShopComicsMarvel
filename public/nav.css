@@ -14,7 +14,7 @@
     left: 150px;
 
     padding: 3em;
-    /* position: absolute; */
+    position: absolute;
     right: 150px;
 
     background-size: cover;
@@ -44,7 +44,8 @@ body {
     border-radius: 50px;
     background: #e0dede;
     box-shadow: 10px 10px 30px #cacaca, -10px -10px 30px rgb(16, 57, 79);
-    border: none
+    border: none;
+
 }
 
 .neo-button {

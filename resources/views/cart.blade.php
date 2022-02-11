@@ -12,23 +12,19 @@
             </header>
             <div class="cart-body">
                 <div class="cart-item">
-                    @if(session('cart'))
+
+                    @if (session('cart'))
                         <?php
-                            $total=0;
-                            $quantidade=0;
+                        $total = 0;
+                        $quantidade = 0;
                         ?>
                         @foreach (session('cart') as $detalhes)
 
                             <div class="cart-row">
-                                <img  width='15%' height="10%" style="margin-left:5%;margin-right:5%;"
-                                src="{{  $detalhes['img'] }}" />
-                                {{-- <div class="cart-row-cell pic">
-                                    <a href="#">-</a>
-                                 --}}
-
+                                <img width='15%' height="10%" style="margin-left:5%;margin-right:5%;"
+                                    src="{{ $detalhes['img'] }}" />
                                 <div class="cart-row-cell desc">
-
-                                    <h5 class="mt-2">{{ "".$detalhes['title'] }}</h5>
+                                    <h5 class="mt-2">{{ '' . $detalhes['title'] }}</h5>
 
                                 </div>
                                 <div class="cart-row-cell quant">
@@ -38,16 +34,17 @@
                                         <li><a href="#">+</a></li>
                                         <div class="cart-row-cell amount">
 
-                                            <li><h5>${{ $detalhes['price'] }}</h5></li>
+                                            <li>
+                                                <h5>${{ $detalhes['price'] }}</h5>
+                                            </li>
 
                                         </div>
                                     </ul>
                                 </div>
 
                             </div>
-                            <span style="display: none;">  {{   $total += $detalhes['price'] }}</span>
-                            <span style="display: none;">  {{   $quantidade += $detalhes['quantidade'] }}</span>
-
+                            <span style="display: none;"> {{ $total += $detalhes['price'] }}</span>
+                            <span style="display: none;"> {{ $quantidade += $detalhes['quantidade'] }}</span>
                         @endforeach
                     @endif
                 </div>
@@ -55,12 +52,20 @@
 
             <footer>
                 <div class="totals">
-                    <h5> <p class="total-label">Quantidade de Itens</p></h5>
-                     <p class="total-amount"><h5>{{ $total }}</h5></p>
-                 </div>
+                    <h5>
+                        <p class="total-label">Quantidade de Itens</p>
+                    </h5>
+                    <p class="total-amount">
+                    <h5>{{ $total }}</h5>
+                    </p>
+                </div>
                 <div class="totals">
-                   <h5> <p class="total-label">Total</p></h5>
-                    <p class="total-amount"><h5>{{ $quantidade }}</h5></p>
+                    <h5>
+                        <p class="total-label">Total</p>
+                    </h5>
+                    <p class="total-amount">
+                    <h5>{{ $quantidade }}</h5>
+                    </p>
                 </div>
 
                 <button>Finalizar Compra</button>

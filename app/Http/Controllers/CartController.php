@@ -30,6 +30,9 @@ class CartController extends Controller
         ];
 
         session()->put('cart', $cart);
-        return redirect()->back()->with(['success' =>'<script>alert("Comics Adicionado ao Carrinho")</script>'])->withInput();
+
+        return redirect()
+            ->route('comics')
+            ->with('success', '<script>alert("Comics Adicionado ao Carrinho")</script>');
     }
 }
