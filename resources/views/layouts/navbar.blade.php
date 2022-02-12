@@ -10,7 +10,7 @@
                 <li>
                     <a href="../comics">
                         <i class="fab fa-opencart"></i>
-                        <h3>Catálogo</h3>
+                        <h3>Catalog</h3>
 
                     </a>
                 </li>
