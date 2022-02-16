@@ -48,6 +48,7 @@
    *  rodar o segundo comando: php artisan key:generate
    *  renomear o .env.example para .env 
    *  iniciar o projeto: php artisan serve
+   *  recomenda-se o uso de navegadores no modo privado/modo anônimo, pois, esse projeto tem algumas funcionalidades encima de 'sessions'.
 ----------------------------------------------------------------//------------------------------------------------------------------
 
 
