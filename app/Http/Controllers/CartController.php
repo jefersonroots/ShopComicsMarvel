@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Http; // "GAZZLEHTTP/GUZZLE
 use Illuminate\Http\Request;
-
+use RealRashid\SweetAlert\Facades\Alert;
 class CartController extends Controller
 {
     /**
@@ -31,8 +31,17 @@ class CartController extends Controller
 
         session()->put('cart', $cart);
 
-        return redirect()
-            ->route('comics')
-            ->with('success', '<script>alert("Comics Adicionado ao Carrinho")</script>');
-    }
+        $st = new \StdClass();
+        if($cart){
+            $st->status = true;
+            $st->message = "Apartamento ativado com sucesso";
+            return redirect()
+                   ->back()
+                   ->with('st', $st); 
+        }
+        // // old 
+        // return redirect()
+        // ->route('comics')
+        // ->with('sucesso', 'mensagem aqui');
+        }
 }

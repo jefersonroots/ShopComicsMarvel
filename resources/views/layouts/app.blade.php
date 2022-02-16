@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    
     <meta charset="utf-8" />
     <title>Catalogo Comics - @yield('title')</title>
     <meta name="description" content="Catalogo Comics Marvel API" />
@@ -17,9 +18,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="{{ asset('nav.css') }}">
     @yield('css-view')
+
 </head>
 
 <body>
+    @include('sweetalert::alert')
     @include('layouts.navbar')
     @section('sidebar')
 

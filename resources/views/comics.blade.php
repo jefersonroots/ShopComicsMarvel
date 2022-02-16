@@ -4,7 +4,7 @@
 @section('sidebar')
     @parent
 
-@endsection
+
 
 @section('content')
 
@@ -12,10 +12,30 @@
 
         <div class="container">
             <div class="row d-flex ">
+              
                 <?php
-                session_start();
-
+               session_start();
+                //  var_dump(session()->has('st')); 
                 ?>
+@if(session()->has('st'))
+@if(!session()->get('st')->status)
+    <div id="msg" class="alert alert-error">                
+        <script>alert("Erro ao adicionar ao carrinho!");</script>
+    </div>           
+  <?php  
+//   unset($_SESSION('st'));
+   ?>
+@else
+    <div id="msg" class="alert alert-sucess">                
+        <script>alert("Comics adicionado ao carrinho!");</script>
+    </div>
+    <?php 
+    // unset($_SESSION('st')); 
+   
+    ?>
+@endif
+@endif
+ 
 
                 @foreach ($results as $resultArray)
                     <?php
@@ -28,7 +48,7 @@
 
                     @else
 
-                        <div class="card p-3 py-4 col-md-4 d-flex justify-content-center flex-wrap">
+                        <div class="card p-3 py-4 justify-content-center">
                             <div class="text-center">
                                 <a href="cart" placeholder="teste"> <img width='60%' height="50%"
                                         src="{{ $imagem }}" /></a>
@@ -118,4 +138,5 @@
             });
         });
     </script>
+@endsection
 @endsection
