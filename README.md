@@ -48,8 +48,8 @@
    *  rodar o segundo comando: php artisan key:generate
    *  renomear o .env.example para .env 
    *  iniciar o projeto: php artisan serve
-----------------------------------------------------------------//------------------------------------------------------------------
 
+--
 
 ## Telas do Sistema
   > Principal: <br>
