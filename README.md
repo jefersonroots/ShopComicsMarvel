@@ -65,9 +65,8 @@
   <br>  Tela do Carrinho de Compras:<br> 
  <img src="https://user-images.githubusercontent.com/64113091/153607588-fc7d5f8e-94e8-40f3-8623-59dd44733521.png" alt="drawing" width="500" heigth="350" />.
 
-## Funcionalidades Futuras
-   * Notificar se o produto foi adicionado ao carrinho com sucesso. 
-   * Somar quantidade ao carrinho quando o comics já está no carrinho.
+## Funcionalidades Em Desenvolvimento
+   * Somar a quantidade caso o comics já esteja no carrinho.
    * Operar quantidade x valor no carrinho 
    * Adicionar opções de raridades nos comics 
    * Adicionar opção de cupom aos comics utilizando rest com mock
